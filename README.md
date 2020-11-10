@@ -1,4 +1,4 @@
-# Shift 1 JARKOM 2020 - T17
+# Shift 1 JARKOM 2020  -T17
 Penyelesaian Soal Shift 1 Komunikasi Data, dan Jaringan Data 2020\
 Kelompok T17
   * Milennia Ulwan Zafira (05311840000020)
