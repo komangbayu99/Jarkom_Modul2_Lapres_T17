@@ -22,7 +22,7 @@ xterm -T PROBOLINGGO -e linux ubd0=PROBOLINGGO,jarkom umid=PROBOLINGGO eth0=daem
 xterm -T SIDOARJO -e linux ubd0=SIDOARJO,jarkom umid=SIDOARJO eth0=daemon,,,switch1 mem=96M &
 xterm -T GRESIK -e linux ubd0=GRESIK,jarkom umid=GRESIK eth0=daemon,,,switch1 mem=96M &
 ```
-## Interfaces UML
+## Interfaces UML (Setting IP)
 * [Surabaya](#Surabaya)
 * [Malang](#Malang)
 * [Mojokerto](#Mojokerto)
