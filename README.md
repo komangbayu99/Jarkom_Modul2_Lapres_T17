@@ -132,7 +132,7 @@ gateway 192.168.0.1
 
 ## Soal 1
 
-- Step Awal kita harus update pada "MALANG" dengan syntax 
+- Step Awal kita harus update pada **MALANG** dengan cara menuliskan kata ``apt-get update``
 
 ## Soal 2
 
