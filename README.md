@@ -132,6 +132,8 @@ gateway 192.168.0.1
 
 ## Soal 1
 
+- Step Awal kita harus update pada *MALANG* dengan syntax 
+
 ## Soal 2
 
 ## Soal 3
