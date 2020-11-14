@@ -133,8 +133,11 @@ gateway 192.168.0.1
 ## Soal 1
 
 - update pada **MALANG** dengan cara menuliskan kata ``apt-get update``
+
 - Instal bind9 dengan ``apt-get install bind9 -y``
+
 - Beri perintah ``nano /etc/bind/named.conf.local``
+
 - Isikan configurasi domain semerut08.pw sesuai dengan syntax sbagai berikut : 
 
 `` zone "semerut17.pw" {
@@ -145,27 +148,163 @@ gateway 192.168.0.1
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162105257197568/1605346401630.jpg)
 
 -Copykan file **db.local** pada path **/etc/bind** ke dalam folder jarkom yang baru saja dibuat : 
+
 -Edit file semerut17.pw seperti gambar dibawah
 
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162139378778152/1605346489650.jpg)
 
 - Kemudian restart bind9 dengan perintah ``service bind9 restart``
-- Pada client GRESIK dan SIDOARJO arahkan nameserver menuju IP MALANG dengan mengedit file resolve.conf dengan perintah ``nano /etc/resolv.conf``
-- Untuk mencoba koneksi DNS, lakukan ping domain semerut14.pw dengan melakukan perintah berikut pada client GRESIK ``ping semerut14.pw``
+
+- Pada client GRESIK arahkan nameserver menuju IP MALANG dengan mengedit file resolve.conf dengan perintah ``nano /etc/resolv.conf``
+
+- Untuk mencoba koneksi DNS, lakukan ping domain semerut17.pw dengan melakukan perintah berikut pada client GRESIK ``ping semerut17.pw``
 
 - ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777217975274962964/Gresik1.jpg)
 
-## Soal 2
+## Soal 2 
+
+-Step awal kita harus embuka file pada server malang dengan cara ``nano /etc/bind/jarkom/semerut17.pw`` jika sudah kita harus tambahkan konfigurasi seperti dibawah ini.
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162139378778152/1605346489650.jpg)
+
+- Lalu Restart bind9 dengan perintah ``service bind9 restart``
+
+- Setelah itu cek di client GRESIK ping www.semerut17.pw
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777292301805682688/Gresik2.jpg)
 
 ## Soal 3
 
+- Pertama-tama kita harus edit file semeru.pw pada MALANG nano /etc/bind/jarkom/semerut17.pw
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162139378778152/1605346489650.jpg)
+
+- Lalu edit ``nano /etc/bind/named.conf.local``
+
+- Kemudian restart bind9 dengan perintah ``service bind9 restart``
+
+- Kemudian pada client GRESIK lakukan Ujicoba ``ping penanjakan.semerut17.pw``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777293821574774824/Gresik3.jpg)
+
+
 ## Soal 4
+
+- Langkah awal kita akan mengedit file  ``nano /etc/bind/named.conf.local`` pada MALANG
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162105257197568/1605346401630.jpg)
+
+- Selanjutnya adalah copy ``db.local`` ke dalam file ``71.151.10.in-addr.arp``a pada folder jarkom dengan perintah ``cp /etc/bind/db.local /etc/bind/jarkom/71.151.10.in-addr.arpa``
+
+- ``71.151.10`` merupakan 3 byte pertama IP MALANG yang di-reverse urutannya
+
+- Kemudian edit file dengan ``nano /etc/bind/jarkom/71.151.10.in-addr.arpa``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162322711150603/1605346515750.jpg)
+
+- Kemudian restart bind9 dengan perintah ``service bind9 restart``
+
+- Untuk mengecek konfigurasi dapat melakukan perintah ``host -t PTR 10.151.71.116`` pada client GRESIK
 
 ## Soal 5
 
+- Pada MALANG edit ``nano /etc/bind/named.conf.local``
+
+``zone "semerut17.pw" {
+    type master;
+    notify yes;
+    also-notify { 10.151.71.116; }; // IP MOJOKERTO
+    allow-transfer { 10.151.71.116; }; // MOJOKERTO
+    file "/etc/bind/jarkom/semerut17.pw";
+}; `` 
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162105257197568/1605346401630.jpg)
+
+- Kemudian restart bind9 dengan perintah ``service bind9 restart``
+
+- Buka MOJOKERTO dan update package lists dengan menjalankan command ``apt-get update``
+
+- Kemudian install aplikasi bind9 pada MOJOKERTO ``apt-get install bind9 -y``
+
+- Edit file pada MOJOKERTO ``nano /etc/bind/named.conf.local``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777298754012708866/Mojokerto2.jpg)
+
+- Langkah Selanjutnya adalah kita restart bind9 pada MOJOKERTO dengan perintah ``service bind9 restart``
+
+- Pada sever MALANG kita akan mematikan service bind9 ``service bind9 stop``
+
+- Pada client GRESIK atur nameserver mengarah ke IP MALANG dan MOJOKERTO ``nano /etc/resolv.conf`` 
+
+- Langkah terakhir adalah kita akan melakukan  ``ping semerut17.pw`` pada client GRESIK
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777300430026833920/Gresik1.jpg) 
+
 ## Soal 6
 
+**MALANG**
+
+- Edit file ``nano /etc/bind/jarkom/semerut17.pw``
+
+- Tambahkan konfigurasi
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162139378778152/1605346489650.jpg)
+
+- Step selanjutnya adalah Mengedit nano ``/etc/bind/named.conf.options``
+
+- Setelah sudah, edit nano ``/etc/bind/named.conf.local``
+
+``zone "semerut17.pw" {
+    type master;
+    notify yes;
+    also-notify { 10.151.71.116; }; // IP MOJOKERTO
+    allow-transfer { 10.151.71.116; }; // MOJOKERTO
+    file "/etc/bind/jarkom/semerut17.pw";
+};``
+
+- Jika semua sudah terlakukan, Maka kita akan restart bind9 dengan perintah ``service bind9 restart``
+
+**MOJOKERTO**
+
+- Lakukan Comment ``//dnssec-validation auto;``
+
+- Jika sudah, Tambahkanlah  ``allow-query{any;};``
+
+- Setelah itu kita harus edit file nano dengan cara ``/etc/bind/named.conf.local``
+
+``zone "semerut17.pw" {
+    type slave;
+    masters { 10.151.71.114; }; // IP MALANG
+    file "/var/lib/bind/gunung.semerut17.pw";
+};``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777298754012708866/Mojokerto2.jpg)
+
+- Step selanjutnya adalah kita harus membuat direktori delegasi ``mkdir /etc/bind/delegasi``
+
+- Copy ``db.local`` ke dalam ``gunung.semeru.t17.pw`` dengan cara sebagai berikut ``cp /etc/bind/db.local /etc/bind/delegasi/gunung.semerut17.pw``
+
+- Edit ``nano /etc/bind/delegasi/gunung.semerut17.pw`` menjadi seperti gambar di bawah ini 
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777304707826843668/Mojokerto1.jpg) 
+
+- Setelah itu restart bind9 dengan perintah ``service bind9 restart``
+
+- Setelah itu Lakukan uji coba dengan cara ``ping gunung.semerut17.pw``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777305958413238342/gresik4.jpg)
+
 ## Soal 7
+
+- Pada MOJOKERTO edit ``nano /etc/bind/delegasi/gunung.semerut14.pw dan tambahkan naik IN A 10.151.77.164``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777304707826843668/Mojokerto1.jpg) 
+
+- Langkah selanjutnya restart bind9 dengan perintah sebagai berikut ``service bind9 restart``
+
+- Setelah itu jika sudah, lakukan uji coba dengan cara ``ping naik.gunung.semerut17.pw``
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777307383683743754/gresik5.jpg)
 
 ## Soal 8
 
