@@ -132,7 +132,28 @@ gateway 192.168.0.1
 
 ## Soal 1
 
-- Step Awal kita harus update pada **MALANG** dengan cara menuliskan kata ``apt-get update``
+- update pada **MALANG** dengan cara menuliskan kata ``apt-get update``
+- Instal bind9 dengan ``apt-get install bind9 -y``
+- Beri perintah ``nano /etc/bind/named.conf.local``
+- Isikan configurasi domain semerut08.pw sesuai dengan syntax sbagai berikut : 
+
+``zone "semerut08.pw"{
+	type master;
+	file "/etc/bind/jarkom/semerut08.pw";
+};`` 
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162105257197568/1605346401630.jpg)
+
+-Copykan file **db.local** pada path **/etc/bind** ke dalam folder jarkom yang baru saja dibuat : 
+-Edit file semerut17.pw seperti gambar dibawah
+
+![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162139378778152/1605346489650.jpg)
+
+- Kemudian restart bind9 dengan perintah ``service bind9 restart``
+- Pada client GRESIK dan SIDOARJO arahkan nameserver menuju IP MALANG dengan mengedit file resolve.conf dengan perintah ``nano /etc/resolv.conf``
+- Untuk mencoba koneksi DNS, lakukan ping domain semerut14.pw dengan melakukan perintah berikut pada client GRESIK ``ping semerut14.pw``
+
+- ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777217975274962964/Gresik1.jpg)
 
 ## Soal 2
 
