@@ -137,7 +137,7 @@ gateway 192.168.0.1
 - Beri perintah ``nano /etc/bind/named.conf.local``
 - Isikan configurasi domain semerut08.pw sesuai dengan syntax sbagai berikut : 
 
-``zone "semerut08.pw"{
+``zone "semerut17.pw"{
 	type master;
 	file "/etc/bind/jarkom/semerut08.pw";
 };`` 
