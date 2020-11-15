@@ -206,6 +206,10 @@ gateway 192.168.0.1
 
 - Langkah awal kita akan mengedit file  ``nano /etc/bind/named.conf.local`` pada MALANG
 
+``zone "71.151.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/jarkom/71.151.10.in-addr.arpa";
+};``
 
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162105257197568/1605346401630.jpg)
 
