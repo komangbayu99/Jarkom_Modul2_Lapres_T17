@@ -138,7 +138,7 @@ gateway 192.168.0.1
 
 - Beri perintah ``nano /etc/bind/named.conf.local``
 
-- Isikan configurasi domain semerut08.pw sesuai dengan syntax sbagai berikut : 
+- Isikan configurasi domain semerut17.pw sesuai dengan syntax sbagai berikut : 
 
 `` zone "semerut17.pw" {
 	   type master;
@@ -169,7 +169,7 @@ gateway 192.168.0.1
 
 ## Soal 2 
 
-- Step awal kita harus embuka file pada server malang dengan cara ``nano /etc/bind/jarkom/semerut17.pw`` jika sudah kita harus tambahkan konfigurasi seperti dibawah ini.
+- Step awal kita harus membuka file pada server malang dengan cara ``nano /etc/bind/jarkom/semerut17.pw`` jika sudah kita harus tambahkan konfigurasi seperti dibawah ini(pada CNAME).
 
 
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162139378778152/1605346489650.jpg)
@@ -210,7 +210,7 @@ gateway 192.168.0.1
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777162105257197568/1605346401630.jpg)
 
 
-- Selanjutnya adalah copy ``db.local`` ke dalam file ``71.151.10.in-addr.arp``a pada folder jarkom dengan perintah ``cp /etc/bind/db.local /etc/bind/jarkom/71.151.10.in-addr.arpa``
+- Selanjutnya adalah copy ``db.local`` ke dalam file ``71.151.10.in-addr.arpa`` pada folder jarkom dengan perintah ``cp /etc/bind/db.local /etc/bind/jarkom/71.151.10.in-addr.arpa``
 
 - ``71.151.10`` merupakan 3 byte pertama IP MALANG yang di-reverse urutannya
 
