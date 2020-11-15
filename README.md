@@ -246,7 +246,7 @@ gateway 192.168.0.1
 
 - Kemudian install aplikasi bind9 pada MOJOKERTO ``apt-get install bind9 -y``
 
-- Edit file pada MOJOKERTO ``nano /etc/bind/named.conf.local``
+- Edit file pada MOJOKERTO agar menjadi DNS Slave ``nano /etc/bind/named.conf.local``
 
 
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777298754012708866/Mojokerto2.jpg)
