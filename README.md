@@ -40,16 +40,7 @@ xterm -T GRESIK -e linux ubd0=GRESIK,jarkom umid=GRESIK eth0=daemon,,,switch1 me
 * [Soal 5](#soal-5)
 * [Soal 6](#soal-6)
 * [Soal 7](#soal-7)
-* [Soal 8](#soal-8)
-* [Soal 9](#soal-9)
-* [Soal 10](#soal-10)
-* [Soal 11](#soal-11)
-* [Soal 12](#soal-12)
-* [Soal 13](#soal-13)
-* [Soal 14](#soal-14)
-* [Soal 15](#soal-15)
-* [Soal 16](#soal-16)
-* [Soal 17](#soal-17)
+
 ---
 
 ## Surabaya
@@ -228,6 +219,8 @@ gateway 192.168.0.1
 
 - Untuk mengecek konfigurasi dapat melakukan perintah ``host -t PTR 10.151.71.116`` pada client GRESIK
 
+![picture](https://cdn.discordapp.com/attachments/691272793706201100/777536209189863434/no_4_ujicoba.jpg)
+
 ## Soal 5
 
 - Pada MALANG edit ``nano /etc/bind/named.conf.local``
@@ -346,22 +339,3 @@ gateway 192.168.0.1
 ![picture](https://cdn.discordapp.com/attachments/777146787336290354/777307383683743754/gresik5.jpg)
 
 
-## Soal 8
-
-## Soal 9
-
-## Soal 10
-
-## Soal 11
-
-## Soal 12
-
-## Soal 13
-
-## Soal 14
-
-## Soal 15
-
-## Soal 16
-
-## Soal 17
