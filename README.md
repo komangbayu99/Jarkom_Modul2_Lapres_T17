@@ -131,7 +131,8 @@ gateway 192.168.0.1
 
 - Isikan configurasi domain semerut17.pw sesuai dengan syntax sbagai berikut : 
 
-`` zone "semerut17.pw" {
+``
+zone "semerut17.pw" {
 	   type master;
 	   file "etc/bind/jarkom/semerut17.pw";
 }; ``
